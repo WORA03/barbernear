@@ -50,7 +50,7 @@ export default function HomeScreen({ navigation }: any) {
         >
           <View style={styles.header}>
             <View style={styles.greetingContainer}>
-              <Text style={styles.greeting}>👋 Hello, {user?.name || 'User'}!</Text>
+              <Text style={styles.greeting} numberOfLines={1}>👋 Hi, {user?.name || 'User'}!</Text>
               <Text style={styles.subtitle}>Welcome back to BarberNear</Text>
             </View>
             <UserMenu onLogout={logout} navigation={navigation} />
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   greeting: { 
-    fontSize: 28, 
+    fontSize: 24, 
     fontWeight: 'bold',
     color: '#111827',
     marginBottom: 4,

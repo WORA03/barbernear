@@ -79,7 +79,7 @@ export default function DashboardScreen({ navigation }: any) {
               title="Pending"
               value={bookings.filter(b => b.status === 'PENDING').length}
               subtitle="Awaiting"
-              color="#F59E0B"
+              color="#f5291aff"
               icon="⏳"
             />
           </ScrollView>

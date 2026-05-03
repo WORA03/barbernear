@@ -26,7 +26,7 @@ export default function RegisterScreen({ navigation }: any) {
   };
 
   return (
-    <GradientBackground variant="vintage">
+    <GradientBackground variant="classic">
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
           <View style={styles.card}>

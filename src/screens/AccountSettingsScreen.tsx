@@ -66,8 +66,19 @@ export default function AccountSettingsScreen({ navigation }: any) {
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Text style={styles.title}>Account Settings</Text>
-            <Text style={styles.subtitle}>Manage your account preferences</Text>
+            <View style={styles.headerContent}>
+              <TouchableOpacity 
+                style={styles.backButton}
+                onPress={() => navigation.goBack()}
+                activeOpacity={0.7}
+              >
+                <Text style={styles.backButtonIcon}>‹</Text>
+              </TouchableOpacity>
+              <View style={styles.headerText}>
+                <Text style={styles.title}>Account Settings</Text>
+                <Text style={styles.subtitle}>Manage your account preferences</Text>
+              </View>
+            </View>
           </View>
 
           <View style={styles.section}>
@@ -213,6 +224,36 @@ const styles = StyleSheet.create({
   },
   header: {
     marginBottom: 32,
+  },
+  headerContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  backButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 16,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  backButtonIcon: {
+    fontSize: 24,
+    color: '#374151',
+    fontWeight: 'bold',
+    lineHeight: 24,
+  },
+  headerText: {
+    flex: 1,
   },
   title: {
     fontSize: 28,

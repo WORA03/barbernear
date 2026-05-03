@@ -23,7 +23,7 @@ export default function LoginScreen({ navigation }: any) {
   };
 
   return (
-    <GradientBackground variant="vintage">
+    <GradientBackground variant="classic">
       <View style={styles.container}>
         <View style={styles.card}>
           <Text style={styles.title}>BarberNear</Text>
