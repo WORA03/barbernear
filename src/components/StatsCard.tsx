@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+
+const { width } = Dimensions.get('window');
 
 interface StatsCardProps {
   title: string;
@@ -18,11 +20,11 @@ export default function StatsCard({
 }: StatsCardProps) {
   return (
     <View style={[styles.container, { borderLeftColor: color }]}>
-      <View style={styles.header}>
+      <View style={[styles.iconContainer, { backgroundColor: color }]}>
         <Text style={styles.icon}>{icon}</Text>
-        <Text style={styles.title}>{title}</Text>
       </View>
-      <Text style={[styles.value, { color }]}>{value}</Text>
+      <Text style={styles.value}>{value}</Text>
+      <Text style={styles.title}>{title}</Text>
       {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
     </View>
   );
@@ -34,7 +36,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 16,
     marginBottom: 16,
-    width: 160,
+    width: width * 0.4,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -45,27 +47,31 @@ const styles = StyleSheet.create({
     elevation: 3,
     borderLeftWidth: 4,
   },
-  header: {
-    flexDirection: 'row',
+  iconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 8,
   },
   icon: {
-    fontSize: 20,
-    marginRight: 8,
-  },
-  title: {
-    fontSize: 14,
-    color: '#6B7280',
-    fontWeight: '500',
+    color: '#FFFFFF',
+    fontSize: width * 0.05,
   },
   value: {
-    fontSize: 24,
+    fontSize: width * 0.06,
     fontWeight: 'bold',
+    color: '#1F2937',
     marginBottom: 4,
   },
+  title: {
+    fontSize: width * 0.03,
+    color: '#6B7280',
+    marginBottom: 2,
+  },
   subtitle: {
-    fontSize: 12,
+    fontSize: width * 0.025,
     color: '#9CA3AF',
   },
 });

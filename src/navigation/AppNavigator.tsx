@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useAuthStore } from '../store/authStore';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, View, Text } from 'react-native';
 
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
@@ -28,10 +28,60 @@ function AuthStack() {
 
 function MainTabs() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Nearby" component={NearbyShopsScreen} />
-      <Tab.Screen name="Dashboard" component={DashboardScreen} />
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+          let iconSize = 24;
+
+          if (route.name === 'Home') {
+            iconName = '🏠'; // Casa - Home
+          } else if (route.name === 'Nearby') {
+            iconName = '✂️'; // Tijeras - Barbería cercana
+          } else if (route.name === 'Dashboard') {
+            iconName = '📊'; // Gráfica - Dashboard
+          }
+
+          return <Text style={{ fontSize: iconSize, color }}>{iconName}</Text>;
+        },
+        tabBarActiveTintColor: '#1E293B',
+        tabBarInactiveTintColor: '#64748B',
+        tabBarStyle: {
+          backgroundColor: '#FFFFFF',
+          borderTopWidth: 1,
+          borderTopColor: '#E2E8F0',
+          paddingTop: 8,
+          paddingBottom: 8,
+          height: 60,
+        },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '600',
+        },
+        headerShown: false,
+      })}
+    >
+      <Tab.Screen 
+        name="Home" 
+        component={HomeScreen}
+        options={{
+          tabBarLabel: 'Home',
+        }}
+      />
+      <Tab.Screen 
+        name="Nearby" 
+        component={NearbyShopsScreen}
+        options={{
+          tabBarLabel: 'Nearby',
+        }}
+      />
+      <Tab.Screen 
+        name="Dashboard" 
+        component={DashboardScreen}
+        options={{
+          tabBarLabel: 'Dashboard',
+        }}
+      />
     </Tab.Navigator>
   );
 }

@@ -120,13 +120,16 @@ export default function HomeScreen({ navigation }: any) {
   );
 }
 
+const { width, height } = Dimensions.get('window');
+
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
-  container: { 
-    flex: 1, 
-    padding: 20,
+  container: {
+    flex: 1,
+    padding: width * 0.05, // 5% of screen width
+    minHeight: height,
   },
   header: { 
     flexDirection: 'row', 
@@ -138,13 +141,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   greeting: { 
-    fontSize: 24, 
+    fontSize: width * 0.05, // 5% of screen width
     fontWeight: 'bold',
     color: '#111827',
     marginBottom: 4,
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: width * 0.04, // 4% of screen width
     color: '#6B7280',
   },
   statsContainer: {

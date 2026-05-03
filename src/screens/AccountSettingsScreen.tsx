@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, Text, StyleSheet, Alert, Switch, TouchableOpacity } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, Alert, Switch, TouchableOpacity, Dimensions } from 'react-native';
 import { useAuthStore } from '../store/authStore';
 import CustomButton from '../components/CustomButton';
 import GradientBackground from '../components/GradientBackground';
@@ -215,12 +215,15 @@ export default function AccountSettingsScreen({ navigation }: any) {
   );
 }
 
+const { width, height } = Dimensions.get('window');
+
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
   container: {
-    padding: 20,
+    padding: width * 0.05, // 5% of screen width
+    minHeight: height,
   },
   header: {
     marginBottom: 32,
@@ -256,13 +259,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: 28,
+    fontSize: width * 0.06, // 6% of screen width
     fontWeight: 'bold',
     color: '#111827',
     marginBottom: 8,
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: width * 0.04, // 4% of screen width
     color: '#6B7280',
   },
   section: {
