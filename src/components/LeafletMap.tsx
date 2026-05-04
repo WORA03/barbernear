@@ -66,9 +66,17 @@ export default function LeafletMap({
         </View>
         <TouchableOpacity 
           style={styles.mapButton}
-          onPress={() => Alert.alert('Map', 'Interactive map feature coming soon!')}
+          onPress={() => {
+            // Toggle between map view and shop list
+            // For now, just show a message that the map is already visible
+            Alert.alert(
+              'Map View',
+              'You are currently viewing the map area. The barbershops are listed below.',
+              [{ text: 'OK', style: 'default' }]
+            );
+          }}
         >
-          <Text style={styles.mapButtonText}>🗺️ Open Map</Text>
+          <Text style={styles.mapButtonText}>🗺️ View Map</Text>
         </TouchableOpacity>
       </View>
       
